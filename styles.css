@@ -1,0 +1,12 @@
+.cus-card-title{
+    font-weight: 800;
+    padding: 50;
+}
+
+.cus-input-div input, textarea{
+    margin-bottom: 10px;
+}
+
+.container .card{
+    margin-top: 5%;
+}
