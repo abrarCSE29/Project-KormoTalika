@@ -17,7 +17,7 @@ function addTask() {
         let card_text = document.createElement("p");
         let btnDone = document.createElement("a");
         let btnDelete = document.createElement("a");
-
+        // comment
         col_sm_4.className = "col-sm-4";
         card.className = "card";
         card_body.className="card-body";
