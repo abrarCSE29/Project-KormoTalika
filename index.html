@@ -35,13 +35,15 @@
                         <div class="cus-input-div">
                             <input class="form-control" type="text" placeholder="Enter Task Heading" aria-label="default input example" id="task-heading">
                             <textarea class="form-control" type="text" placeholder="Enter Task Description" rows="5" aria-label="default input example" id="task-description"></textarea>
-                            <button type="button" class="btn btn-primary" id="new-task">Add Task</button>
+                            <button type="button" class="btn btn-primary" id="new-task" onclick="addTask(event)">Add Task</button>
                             <button type="button" class="btn btn-warning" id="clear-task">Clear all task</button>
                         </div>
                     </div>
                 </div>
             </div> 
         </div>
+
+        <!-- existing card section -->
         <div class="row">
             <div class="">
                 <div class="card shadow-lg p-3 mb-2 bg-body-tertiary rounded " style=" border: none;">
@@ -54,7 +56,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" id="task-list">
                                 <div class="card">
                                   <div class="card-body">
                                     <h5 class="card-title">Task 1</h5>
@@ -70,6 +72,16 @@
                                   <div class="card-body">
                                     <h5 class="card-title">Task 2</h5>
                                     <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quidem ullam id error hic, vel suscipit consequatur possimus officia, accusantium reiciendis maiores animi. Ratione quasi ducimus maxime, laudantium velit vero.</p>
+                                    <a href="#" class="btn btn-success">Done</a>
+                                    <a href="#" class="btn btn-danger">Delete</a>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Task 3</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, excepturi? Fugiat amet veritatis porro ea et veniam reiciendis ex laudantium quisquam. Saepe delectus ratione harum, quam dignissimos quod repellat distinctio.</p>
                                     <a href="#" class="btn btn-success">Done</a>
                                     <a href="#" class="btn btn-danger">Delete</a>
                                   </div>
