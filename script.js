@@ -4,7 +4,8 @@ let task_add = document.querySelector("#new-task");
 let clear_task = document.querySelector("#clear-task");
 let task_list = document.querySelector("#task-list");
 
-task_list.addEventListener('click',removeTask);
+// task_list.addEventListener('click', removeTask);
+// task_list.addEventListener('click', clearExistingTaskList);
 
 function addTask() {
     console.log(task_list)
@@ -18,8 +19,8 @@ function addTask() {
         let card_body = document.createElement("div");
         let card_title = document.createElement("h5");
         let card_text = document.createElement("p");
-        let btnDone = document.createElement("a");
-        let btnDelete = document.createElement("a");
+        let btnDone = document.createElement("button");
+        let btnDelete = document.createElement("button");
         // comment
         col_sm_4.className = "col-sm-4";
         card.className = "card";
@@ -33,10 +34,15 @@ function addTask() {
         btnDone.textContent = "Done";
         btnDone.href = "#";
         btnDone.className = "btn btn-success";
+        btnDone.addEventListener("click",doneTask);
+    
 
         btnDelete.textContent = "Delete";
         btnDelete.href = "#";
         btnDelete.className = "btn btn-danger cus-margin";
+        btnDelete.addEventListener("click",removeTask);
+        btnDelete.id="delete-task";
+
 
 
         card_body.appendChild(card_title);
@@ -55,8 +61,19 @@ function addTask() {
 }
 
 function removeTask(e){
-    if(e.target.hasAttribute("href")){
+    if(e.target.id=="delete-task"){
         let ele = (e.target.parentElement.parentElement.parentElement);
         ele.remove();
     }
+
+}
+
+function clearExistingTaskList(){
+    while(task_list.firstChild){
+        task_list.removeChild(task_list.firstChild);
+    }
+}
+
+function doneTask(e){
+    console.log("I am done task");
 }
