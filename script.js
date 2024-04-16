@@ -45,6 +45,8 @@ function addTask() {
         col_sm_4.appendChild(card);
 
         task_list.appendChild(col_sm_4);
-
+        task_heading.value="";
+        task_description.value="";
+        
     }
 }
