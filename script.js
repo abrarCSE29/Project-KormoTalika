@@ -2,7 +2,10 @@ let task_heading = document.querySelector("#task-heading");
 let task_description = document.querySelector("#task-description");
 let task_add = document.querySelector("#new-task");
 let clear_task = document.querySelector("#clear-task");
-let task_list = document.querySelector("#task-list")
+let task_list = document.querySelector("#task-list");
+
+task_list.addEventListener('click',removeTask);
+
 function addTask() {
     console.log(task_list)
     if (task_heading.value === "") {
@@ -47,6 +50,13 @@ function addTask() {
         task_list.appendChild(col_sm_4);
         task_heading.value="";
         task_description.value="";
-        
+    }
+
+}
+
+function removeTask(e){
+    if(e.target.hasAttribute("href")){
+        let ele = (e.target.parentElement.parentElement.parentElement);
+        ele.remove();
     }
 }
