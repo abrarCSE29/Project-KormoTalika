@@ -4,10 +4,13 @@ let task_add = document.querySelector("#new-task");
 let clear_task = document.querySelector("#clear-task");
 let task_list = document.querySelector("#task-list");
 let search_exst_task = document.querySelector("#filter-existing-task");
+let search_cmpltd_task = document.querySelector("#filter-completed-task");
 // task_list.addEventListener('click', removeTask);
 // task_list.addEventListener('click', clearExistingTaskList);
 
 search_exst_task.addEventListener('keyup',filterExstTask);
+search_cmpltd_task.addEventListener('keyup',filterCmpltdTask);
+
 function addTask() {
     //console.log(task_list)
     if (task_heading.value === "") {
@@ -77,7 +80,7 @@ function clearExistingTaskList(){
 }
 
 function doneTask(e){
-    console.log("I am done task");
+    //console.log("I am done task");
     let ele = (e.target.parentElement.parentElement.parentElement);
     let x = ele.querySelector("#btn-done");
     //console.log(x);
@@ -93,5 +96,43 @@ function doneTask(e){
 }
 
 function filterExstTask(e){
-    console.log(task_list);
+    
+    let text = e.target.value.toLowerCase();
+    let x = document.querySelectorAll("#task-list .col-sm-4");
+    //console.log(x[0].querySelector(".card-title").textContent);
+
+    x.forEach(task =>{
+        let item = task.querySelector(".card-title").textContent.toLowerCase();
+        if(item.indexOf(text)!=-1){
+            task.style.display = "block";
+        }
+        else{
+            task.style.display = "none";
+        }
+    });
+
+}
+
+function filterCmpltdTask(e){
+    
+    let text = e.target.value.toLowerCase();
+    let x = document.querySelectorAll("#completed-task-list .col-sm-4");
+    try{
+        console.log(x[0].querySelector(".card-title").textContent);
+
+        x.forEach(task =>{
+            let item = task.querySelector(".card-title").textContent.toLowerCase();
+            if(item.indexOf(text)!=-1){
+                task.style.display = "block";
+            }
+            else{
+                task.style.display = "none";
+            }
+    });
+    }
+    catch{
+        console.log("No elements on the completed task list");
+    }
+    
+
 }
