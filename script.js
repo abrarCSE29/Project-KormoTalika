@@ -3,12 +3,13 @@ let task_description = document.querySelector("#task-description");
 let task_add = document.querySelector("#new-task");
 let clear_task = document.querySelector("#clear-task");
 let task_list = document.querySelector("#task-list");
-
+let search_exst_task = document.querySelector("#filter-existing-task");
 // task_list.addEventListener('click', removeTask);
 // task_list.addEventListener('click', clearExistingTaskList);
 
+search_exst_task.addEventListener('keyup',filterExstTask);
 function addTask() {
-    console.log(task_list)
+    //console.log(task_list)
     if (task_heading.value === "") {
         alert("Add a task heading");
     }
@@ -79,13 +80,18 @@ function doneTask(e){
     console.log("I am done task");
     let ele = (e.target.parentElement.parentElement.parentElement);
     let x = ele.querySelector("#btn-done");
-    console.log(x);
+    //console.log(x);
     (ele.firstChild.firstChild).removeChild(x);
-    console.log(ele);
+    //console.log(ele);
     let com_task = document.querySelector("#completed-task-list");
-    if(com_task.textContent==="Nothing here"){
-        com_task.removeChild(com_task.firstChild);
+    console.log(com_task.firstElementChild.textContent);
+    if(com_task.firstElementChild.textContent==="Nothing Here"){
+        com_task.removeChild(com_task.firstElementChild);
     }
     
     com_task.append(ele);
+}
+
+function filterExstTask(e){
+    console.log(task_list);
 }
