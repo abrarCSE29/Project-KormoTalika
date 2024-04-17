@@ -76,4 +76,12 @@ function clearExistingTaskList(){
 
 function doneTask(e){
     console.log("I am done task");
+    let ele = (e.target.parentElement.parentElement.parentElement);
+    console.log(ele);
+    let com_task = document.querySelector("#completed-task-list");
+    if(com_task.textContent==="Nothing here"){
+        com_task.removeChild(com_task.firstChild);
+    }
+    
+    com_task.append(ele);
 }
