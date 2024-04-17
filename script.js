@@ -87,7 +87,7 @@ function doneTask(e){
     (ele.firstChild.firstChild).removeChild(x);
     //console.log(ele);
     let com_task = document.querySelector("#completed-task-list");
-    console.log(com_task.firstElementChild.textContent);
+    //console.log(com_task.firstElementChild.textContent);
     if(com_task.firstElementChild.textContent==="Nothing Here"){
         com_task.removeChild(com_task.firstElementChild);
     }
@@ -118,7 +118,7 @@ function filterCmpltdTask(e){
     let text = e.target.value.toLowerCase();
     let x = document.querySelectorAll("#completed-task-list .col-sm-4");
     try{
-        console.log(x[0].querySelector(".card-title").textContent);
+        //console.log(x[0].querySelector(".card-title").textContent);
 
         x.forEach(task =>{
             let item = task.querySelector(".card-title").textContent.toLowerCase();
