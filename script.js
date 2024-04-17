@@ -35,6 +35,7 @@ function addTask() {
         btnDone.href = "#";
         btnDone.className = "btn btn-success";
         btnDone.addEventListener("click",doneTask);
+        btnDone.id="btn-done";
     
 
         btnDelete.textContent = "Delete";
@@ -77,6 +78,9 @@ function clearExistingTaskList(){
 function doneTask(e){
     console.log("I am done task");
     let ele = (e.target.parentElement.parentElement.parentElement);
+    let x = ele.querySelector("#btn-done");
+    console.log(x);
+    (ele.firstChild.firstChild).removeChild(x);
     console.log(ele);
     let com_task = document.querySelector("#completed-task-list");
     if(com_task.textContent==="Nothing here"){
