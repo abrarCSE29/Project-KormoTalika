@@ -71,6 +71,8 @@ function removeTask(e){
         ele.remove();
         search_exst_task.value="";
         filterExstTask({ target: search_exst_task });
+        search_cmpltd_task.value="";
+        filterCmpltdTask({ target: search_cmpltd_task });
     }
 
 }
