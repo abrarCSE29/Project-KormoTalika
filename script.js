@@ -69,6 +69,8 @@ function removeTask(e){
     if(e.target.id=="delete-task"){
         let ele = (e.target.parentElement.parentElement.parentElement);
         ele.remove();
+        search_exst_task.value="";
+        filterExstTask({ target: search_exst_task });
     }
 
 }
@@ -81,6 +83,11 @@ function clearExistingTaskList(){
 
 function doneTask(e){
     //console.log("I am done task");
+    search_exst_task.value="";
+    filterExstTask({ target: search_exst_task });
+    console.log(search_exst_task.value);
+
+
     let ele = (e.target.parentElement.parentElement.parentElement);
     let x = ele.querySelector("#btn-done");
     //console.log(x);
