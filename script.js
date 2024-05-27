@@ -48,8 +48,6 @@ function addTask() {
         btnDelete.addEventListener("click",removeTask);
         btnDelete.id="delete-task";
 
-
-
         card_body.appendChild(card_title);
         card_body.appendChild(card_text);
         card_body.appendChild(btnDone);
@@ -59,6 +57,9 @@ function addTask() {
         col_sm_4.appendChild(card);
 
         task_list.appendChild(col_sm_4);
+
+        storeTaskinLocalStorage(card_title.textContent,card_text.textContent)
+
         task_heading.value="";
         task_description.value="";
     }
@@ -100,7 +101,6 @@ function doneTask(e){
     if(com_task.firstElementChild.textContent==="Nothing Here"){
         com_task.removeChild(com_task.firstElementChild);
     }
-    
     com_task.append(ele);
 }
 
@@ -144,4 +144,23 @@ function filterCmpltdTask(e){
     }
     
 
+}
+
+function storeTaskinLocalStorage(taskTitle,taskDescription){
+    let tasks;
+    let task={
+        title : taskTitle,
+        description : taskDescription,
+    }
+    console.log(task);
+    
+
+    if(localStorage.getItem('tasks')===null){
+        tasks=[];
+    }
+    else{
+        tasks=JSON.parse(localStorage.getItem('tasks'));
+    }   
+    tasks.push(task)
+    localStorage.setItem('tasks',JSON.stringify(tasks));
 }
